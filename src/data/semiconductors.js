@@ -6,10 +6,8 @@
 // Where values differ from original literature estimates, original values are noted in comments.
 //
 // METALLICS — excluded from dropdown as they have no band gap (no semiconductor behaviour).
-// Confirm with ChemE whether any of these have a use case in the tool:
-//   - TiN (metallic)
-//   - VO₂ (metallic)
-//   - MoO₂ (metallic)
+// TiN, VO₂, and MoO₂ were removed from the ChemE's updated spreadsheet entirely.
+// TiN was replaced by TiON (titanium oxynitride), which is a semiconductor and is included below.
 
 const semiconductors = [
   // --- Original entries not in ChemE spreadsheet — kept from literature ---
@@ -47,6 +45,14 @@ const semiconductors = [
     vbEdge: 2.7,
     // Original literature estimate: CB -0.1, VB 3.1
     notes: "Most studied photocatalyst. UV-active only. Highly stable. n-type.",
+  },
+  {
+    id: "tion",
+    name: "TiON (titanium oxynitride)",
+    bandgapEv: 2.3,
+    cbEdge: -0.1,
+    vbEdge: 2.2,
+    notes: "Visible-light active. Nitrogen-doped analogue of TiO₂ with narrowed bandgap. n-type.",
   },
   {
     id: "mos2",
@@ -115,6 +121,22 @@ const semiconductors = [
     vbEdge: 2.4,
     // Original literature estimate: CB 0.02, VB 2.42
     notes: "Visible-light active. Good for oxidation half-reactions. Limited reduction ability. n-type.",
+  },
+  {
+    id: "taon",
+    name: "TaON (beta)",
+    bandgapEv: 2.5,
+    cbEdge: -0.3,
+    vbEdge: 2.2,
+    notes: "Visible-light active oxynitride. Strong CB for CO₂ reduction. n-type.",
+  },
+  {
+    id: "feooh",
+    name: "FeOOH (alpha Goethite)",
+    bandgapEv: 2.2,
+    cbEdge: 0.2,
+    vbEdge: 2.4,
+    notes: "Earth-abundant iron oxyhydroxide. Visible-light active. n-type.",
   },
   {
     id: "nio",
