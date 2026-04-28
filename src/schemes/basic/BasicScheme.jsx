@@ -5,10 +5,28 @@ import BandDiagram from "../../components/BandDiagram";
 import ResultsPanel from "../../components/ResultsPanel";
 import { assessBasicScheme, adjustForPH } from "../../lib/energetics";
 
-export default function BasicScheme({ pH }) {
+function PHInput({ value, onChange }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "8px", margin: "8px 0 16px" }}>
+      <label style={{ fontSize: "13px", fontWeight: "bold", color: "#555" }}>pH:</label>
+      <input
+        type="number" min="0" max="14" step="0.5"
+        value={value}
+        onChange={e => { const v = parseFloat(e.target.value); if (!isNaN(v) && v >= 0 && v <= 14) onChange(v); }}
+        style={{ width: "60px", padding: "4px 6px", border: "1px solid #ccc", borderRadius: "4px", fontSize: "13px" }}
+      />
+      <span style={{ fontSize: "12px", color: value === 0 ? "#aaa" : "#555" }}>
+        {value === 0 ? "pH 0 — reference" : `shift: ${(-0.059 * value).toFixed(3)} V`}
+      </span>
+    </div>
+  );
+}
+
+export default function BasicScheme() {
   const [semiconductor, setSemiconductor] = useState(null);
   const [reductionCouple, setReductionCouple] = useState(null);
   const [oxidationCouple, setOxidationCouple] = useState(null);
+  const [pH, setPH] = useState(0);
 
   const adjusted = semiconductor ? adjustForPH(semiconductor, pH) : null;
 
@@ -30,6 +48,7 @@ export default function BasicScheme({ pH }) {
         value={semiconductor?.id}
         onChange={setSemiconductor}
       />
+      <PHInput value={pH} onChange={setPH} />
       <RedoxPicker
         label="Reduction half-reaction"
         value={reductionCouple?.id}

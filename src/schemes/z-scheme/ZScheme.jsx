@@ -32,15 +32,34 @@ function DrivingForceNote({ value }) {
   );
 }
 
-export default function ZScheme({ pH }) {
+function PHInput({ value, onChange }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "8px", margin: "8px 0 16px" }}>
+      <label style={{ fontSize: "13px", fontWeight: "bold", color: "#555" }}>pH:</label>
+      <input
+        type="number" min="0" max="14" step="0.5"
+        value={value}
+        onChange={e => { const v = parseFloat(e.target.value); if (!isNaN(v) && v >= 0 && v <= 14) onChange(v); }}
+        style={{ width: "60px", padding: "4px 6px", border: "1px solid #ccc", borderRadius: "4px", fontSize: "13px" }}
+      />
+      <span style={{ fontSize: "12px", color: value === 0 ? "#aaa" : "#555" }}>
+        {value === 0 ? "pH 0 — reference" : `shift: ${(-0.059 * value).toFixed(3)} V`}
+      </span>
+    </div>
+  );
+}
+
+export default function ZScheme() {
   const [pc1, setPc1] = useState(null);
   const [pc2, setPc2] = useState(null);
   const [mediator, setMediator] = useState(null);
   const [reductionCouple, setReductionCouple] = useState(null);
   const [oxidationCouple, setOxidationCouple] = useState(null);
+  const [pc1PH, setPc1PH] = useState(0);
+  const [pc2PH, setPc2PH] = useState(0);
 
-  const adjustedPc1 = pc1 ? adjustForPH(pc1, pH) : null;
-  const adjustedPc2 = pc2 ? adjustForPH(pc2, pH) : null;
+  const adjustedPc1 = pc1 ? adjustForPH(pc1, pc1PH) : null;
+  const adjustedPc2 = pc2 ? adjustForPH(pc2, pc2PH) : null;
 
   const results =
     adjustedPc1 && adjustedPc2 && mediator && reductionCouple && oxidationCouple
@@ -63,6 +82,7 @@ export default function ZScheme({ pH }) {
             Photocathode (PC1) — Reduction
           </p>
           <SemiconductorPicker label="Semiconductor" value={pc1?.id} onChange={setPc1} />
+          <PHInput value={pc1PH} onChange={setPc1PH} />
           <RedoxPicker label="Reduction half-reaction" value={reductionCouple?.id} onChange={setReductionCouple} />
         </div>
         <div>
@@ -70,6 +90,7 @@ export default function ZScheme({ pH }) {
             Photoanode (PC2) — Oxidation
           </p>
           <SemiconductorPicker label="Semiconductor" value={pc2?.id} onChange={setPc2} />
+          <PHInput value={pc2PH} onChange={setPc2PH} />
           <RedoxPicker label="Oxidation half-reaction" filter="water_oxidation" value={oxidationCouple?.id} onChange={setOxidationCouple} />
         </div>
       </div>

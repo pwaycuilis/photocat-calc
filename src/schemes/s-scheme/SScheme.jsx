@@ -31,14 +31,33 @@ function DrivingForceNote({ value }) {
   );
 }
 
-export default function SScheme({ pH }) {
+function PHInput({ value, onChange }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "8px", margin: "8px 0 16px" }}>
+      <label style={{ fontSize: "13px", fontWeight: "bold", color: "#555" }}>pH:</label>
+      <input
+        type="number" min="0" max="14" step="0.5"
+        value={value}
+        onChange={e => { const v = parseFloat(e.target.value); if (!isNaN(v) && v >= 0 && v <= 14) onChange(v); }}
+        style={{ width: "60px", padding: "4px 6px", border: "1px solid #ccc", borderRadius: "4px", fontSize: "13px" }}
+      />
+      <span style={{ fontSize: "12px", color: value === 0 ? "#aaa" : "#555" }}>
+        {value === 0 ? "pH 0 — reference" : `shift: ${(-0.059 * value).toFixed(3)} V`}
+      </span>
+    </div>
+  );
+}
+
+export default function SScheme() {
   const [rp, setRp] = useState(null);
   const [op, setOp] = useState(null);
   const [reductionCouple, setReductionCouple] = useState(null);
   const [oxidationCouple, setOxidationCouple] = useState(null);
+  const [rpPH, setRpPH] = useState(0);
+  const [opPH, setOpPH] = useState(0);
 
-  const adjustedRp = rp ? adjustForPH(rp, pH) : null;
-  const adjustedOp = op ? adjustForPH(op, pH) : null;
+  const adjustedRp = rp ? adjustForPH(rp, rpPH) : null;
+  const adjustedOp = op ? adjustForPH(op, opPH) : null;
 
   const results =
     adjustedRp && adjustedOp && reductionCouple && oxidationCouple
@@ -61,6 +80,7 @@ export default function SScheme({ pH }) {
             Reduction Photocatalyst (RP)
           </p>
           <SemiconductorPicker label="Semiconductor" value={rp?.id} onChange={setRp} />
+          <PHInput value={rpPH} onChange={setRpPH} />
           <RedoxPicker label="Reduction half-reaction" value={reductionCouple?.id} onChange={setReductionCouple} />
         </div>
         <div>
@@ -68,6 +88,7 @@ export default function SScheme({ pH }) {
             Oxidation Photocatalyst (OP)
           </p>
           <SemiconductorPicker label="Semiconductor" value={op?.id} onChange={setOp} />
+          <PHInput value={opPH} onChange={setOpPH} />
           <RedoxPicker label="Oxidation half-reaction" filter="water_oxidation" value={oxidationCouple?.id} onChange={setOxidationCouple} />
         </div>
       </div>
