@@ -1,0 +1,26 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  background: #f9f9f9;
+  color: #1a1a1a;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+select {
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+}
+
+button {
+  font-size: 14px;
+  transition: background 0.15s, color 0.15s;
+}
