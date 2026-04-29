@@ -2,7 +2,7 @@
 
 A thermodynamic screening tool for solar-driven CO₂ reduction systems, built in collaboration with a chemical engineer. Select semiconductors, redox half-reactions, and system pH to evaluate whether a photocatalytic configuration is energetically feasible.
 
-**[Live Demo](https://YOUR-VERCEL-URL-HERE)**
+**[Live Demo](https://photocat-calc.vercel.app/)**
 
 ---
 
