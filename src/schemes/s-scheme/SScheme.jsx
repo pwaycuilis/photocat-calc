@@ -35,12 +35,20 @@ function PHInput({ value, onChange }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "8px", margin: "8px 0 16px" }}>
       <label style={{ fontSize: "13px", fontWeight: "bold", color: "#555" }}>pH:</label>
+      <button
+        onClick={() => onChange(Math.max(0, value - 1))}
+        style={{ width: "30px", height: "30px", fontSize: "18px", border: "1px solid #ccc", borderRadius: "4px", background: "#f5f5f5", cursor: "pointer", lineHeight: 1 }}
+      >−</button>
       <input
-        type="number" min="0" max="14" step="0.5"
+        type="number" min="0" max="14" step="1"
         value={value}
         onChange={e => { const v = parseFloat(e.target.value); if (!isNaN(v) && v >= 0 && v <= 14) onChange(v); }}
-        style={{ width: "60px", padding: "4px 6px", border: "1px solid #ccc", borderRadius: "4px", fontSize: "13px" }}
+        style={{ width: "50px", padding: "4px 6px", border: "1px solid #ccc", borderRadius: "4px", fontSize: "13px", textAlign: "center" }}
       />
+      <button
+        onClick={() => onChange(Math.min(14, value + 1))}
+        style={{ width: "30px", height: "30px", fontSize: "18px", border: "1px solid #ccc", borderRadius: "4px", background: "#f5f5f5", cursor: "pointer", lineHeight: 1 }}
+      >+</button>
       <span style={{ fontSize: "12px", color: value === 0 ? "#aaa" : "#555" }}>
         {value === 0 ? "pH 0 — reference" : `shift: ${(-0.059 * value).toFixed(3)} V`}
       </span>
