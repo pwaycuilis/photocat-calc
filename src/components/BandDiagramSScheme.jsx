@@ -7,7 +7,7 @@
 
 const SVG_WIDTH = 520;
 const SVG_HEIGHT = 360;
-const PADDING = { top: 30, bottom: 40, left: 60, right: 20 };
+const PADDING = { top: 30, bottom: 40, left: 60, right: 55 };
 const PLOT_H = SVG_HEIGHT - PADDING.top - PADDING.bottom;
 const PLOT_W = SVG_WIDTH - PADDING.left - PADDING.right;
 
