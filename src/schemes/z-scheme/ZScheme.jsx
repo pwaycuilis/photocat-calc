@@ -84,7 +84,7 @@ export default function ZScheme() {
         between PC2's conduction band and PC1's valence band for the cycle to close.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "8px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "8px" }}>
         <div>
           <p style={{ margin: "0 0 8px", fontWeight: "bold", color: "#1a5276" }}>
             Photocathode (PC1) — Reduction

@@ -82,7 +82,7 @@ export default function SScheme() {
         preserving the strongest redox sites on both materials.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "8px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "8px" }}>
         <div>
           <p style={{ margin: "0 0 8px", fontWeight: "bold", color: "#1a5276" }}>
             Reduction Photocatalyst (RP)

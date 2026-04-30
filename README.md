@@ -60,4 +60,4 @@ npm run dev
 
 All band edge values are referenced to NHE (Normal Hydrogen Electrode) at pH 0. pH adjustment uses the Nernst approximation: both CB and VB shift by −0.059 × pH volts, with band gap unchanged. Solar fraction is estimated from a piecewise linear approximation of the AM1.5G cumulative photon flux curve.
 
-Semiconductor data is sourced from a chemical engineer collaborator's reference spreadsheet, with original literature values preserved in code comments where they differ.
+Semiconductor band edge values are aggregated from scientific literature.
