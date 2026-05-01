@@ -57,7 +57,7 @@ function PHInput({ value, onChange }) {
   );
 }
 
-export default function ZScheme() {
+export default function ZScheme({ customSemiconductors = [] }) {
   const [pc1, setPc1] = useState(null);
   const [pc2, setPc2] = useState(null);
   const [mediator, setMediator] = useState(null);
@@ -89,7 +89,7 @@ export default function ZScheme() {
           <p style={{ margin: "0 0 8px", fontWeight: "bold", color: "#1a5276" }}>
             Photocathode (PC1) — Reduction
           </p>
-          <SemiconductorPicker label="Semiconductor" value={pc1?.id} onChange={setPc1} />
+          <SemiconductorPicker label="Semiconductor" value={pc1?.id} onChange={setPc1} customSemiconductors={customSemiconductors} />
           <PHInput value={pc1PH} onChange={setPc1PH} />
           <RedoxPicker label="Reduction half-reaction" value={reductionCouple?.id} onChange={setReductionCouple} />
         </div>
@@ -97,7 +97,7 @@ export default function ZScheme() {
           <p style={{ margin: "0 0 8px", fontWeight: "bold", color: "#784212" }}>
             Photoanode (PC2) — Oxidation
           </p>
-          <SemiconductorPicker label="Semiconductor" value={pc2?.id} onChange={setPc2} />
+          <SemiconductorPicker label="Semiconductor" value={pc2?.id} onChange={setPc2} customSemiconductors={customSemiconductors} />
           <PHInput value={pc2PH} onChange={setPc2PH} />
           <RedoxPicker label="Oxidation half-reaction" filter="water_oxidation" value={oxidationCouple?.id} onChange={setOxidationCouple} />
         </div>

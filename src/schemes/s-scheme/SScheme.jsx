@@ -56,7 +56,7 @@ function PHInput({ value, onChange }) {
   );
 }
 
-export default function SScheme() {
+export default function SScheme({ customSemiconductors = [] }) {
   const [rp, setRp] = useState(null);
   const [op, setOp] = useState(null);
   const [reductionCouple, setReductionCouple] = useState(null);
@@ -87,7 +87,7 @@ export default function SScheme() {
           <p style={{ margin: "0 0 8px", fontWeight: "bold", color: "#1a5276" }}>
             Reduction Photocatalyst (RP)
           </p>
-          <SemiconductorPicker label="Semiconductor" value={rp?.id} onChange={setRp} />
+          <SemiconductorPicker label="Semiconductor" value={rp?.id} onChange={setRp} customSemiconductors={customSemiconductors} />
           <PHInput value={rpPH} onChange={setRpPH} />
           <RedoxPicker label="Reduction half-reaction" value={reductionCouple?.id} onChange={setReductionCouple} />
         </div>
@@ -95,7 +95,7 @@ export default function SScheme() {
           <p style={{ margin: "0 0 8px", fontWeight: "bold", color: "#784212" }}>
             Oxidation Photocatalyst (OP)
           </p>
-          <SemiconductorPicker label="Semiconductor" value={op?.id} onChange={setOp} />
+          <SemiconductorPicker label="Semiconductor" value={op?.id} onChange={setOp} customSemiconductors={customSemiconductors} />
           <PHInput value={opPH} onChange={setOpPH} />
           <RedoxPicker label="Oxidation half-reaction" filter="water_oxidation" value={oxidationCouple?.id} onChange={setOxidationCouple} />
         </div>

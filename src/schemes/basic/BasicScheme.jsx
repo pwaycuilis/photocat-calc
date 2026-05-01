@@ -30,7 +30,7 @@ function PHInput({ value, onChange }) {
   );
 }
 
-export default function BasicScheme() {
+export default function BasicScheme({ customSemiconductors = [] }) {
   const [semiconductor, setSemiconductor] = useState(null);
   const [reductionCouple, setReductionCouple] = useState(null);
   const [oxidationCouple, setOxidationCouple] = useState(null);
@@ -55,6 +55,7 @@ export default function BasicScheme() {
         label="Photocatalyst"
         value={semiconductor?.id}
         onChange={setSemiconductor}
+        customSemiconductors={customSemiconductors}
       />
       <PHInput value={pH} onChange={setPH} />
       <RedoxPicker
