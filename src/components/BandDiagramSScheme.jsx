@@ -155,8 +155,8 @@ export default function BandDiagramSScheme({ rp, op, reductionCouple, oxidationC
 
       </svg>
       <p style={{ fontSize: "12px", color: "#888", marginTop: "4px" }}>
-        Blue = Reduction Photocatalyst (RP) &nbsp;|&nbsp; Orange = Oxidation Photocatalyst (OP) &nbsp;|&nbsp;
-        Purple arrow = internal electron transfer step
+        Blue = Reduction Photocatalyst (RP) &nbsp;|&nbsp; Brown = Oxidation Photocatalyst (OP) &nbsp;|&nbsp;
+        Purple arrow = S-Scheme band alignment feasible &nbsp;|&nbsp; Grey = not feasible
       </p>
     </div>
   );

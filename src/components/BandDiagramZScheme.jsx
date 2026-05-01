@@ -176,8 +176,8 @@ export default function BandDiagramZScheme({ pc1, pc2, mediator, reductionCouple
 
       </svg>
       <p style={{ fontSize: "12px", color: "#888", marginTop: "4px" }}>
-        Blue = Photocathode (PC1) &nbsp;|&nbsp; Orange = Photoanode (PC2) &nbsp;|&nbsp;
-        Purple = mediator couple &nbsp;|&nbsp; Arrows trace the Z-shaped electron pathway
+        Blue = Photocathode (PC1) &nbsp;|&nbsp; Brown = Photoanode (PC2) &nbsp;|&nbsp;
+        Purple = mediator compatible &nbsp;|&nbsp; Grey = mediator not compatible &nbsp;|&nbsp; Arrows trace the Z-shaped electron pathway
       </p>
     </div>
   );
