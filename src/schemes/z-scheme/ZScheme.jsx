@@ -99,7 +99,7 @@ export default function ZScheme({ customSemiconductors = [] }) {
           </p>
           <SemiconductorPicker label="Semiconductor" value={pc2?.id} onChange={setPc2} customSemiconductors={customSemiconductors} />
           <PHInput value={pc2PH} onChange={setPc2PH} />
-          <RedoxPicker label="Oxidation half-reaction" filter="water_oxidation" value={oxidationCouple?.id} onChange={setOxidationCouple} />
+          <RedoxPicker label="Oxidation half-reaction" filter="oxidation" value={oxidationCouple?.id} onChange={setOxidationCouple} />
         </div>
       </div>
 

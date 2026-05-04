@@ -65,7 +65,7 @@ export default function BasicScheme({ customSemiconductors = [] }) {
       />
       <RedoxPicker
         label="Oxidation half-reaction"
-        filter="water_oxidation"
+        filter="oxidation"
         value={oxidationCouple?.id}
         onChange={setOxidationCouple}
       />

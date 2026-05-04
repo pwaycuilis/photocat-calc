@@ -97,7 +97,7 @@ export default function SScheme({ customSemiconductors = [] }) {
           </p>
           <SemiconductorPicker label="Semiconductor" value={op?.id} onChange={setOp} customSemiconductors={customSemiconductors} />
           <PHInput value={opPH} onChange={setOpPH} />
-          <RedoxPicker label="Oxidation half-reaction" filter="water_oxidation" value={oxidationCouple?.id} onChange={setOxidationCouple} />
+          <RedoxPicker label="Oxidation half-reaction" filter="oxidation" value={oxidationCouple?.id} onChange={setOxidationCouple} />
         </div>
       </div>
 
