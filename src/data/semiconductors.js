@@ -49,9 +49,10 @@ const semiconductors = [
   {
     id: "tion",
     name: "TiON (titanium oxynitride)",
-    bandgapEv: 2.3,
-    cbEdge: -0.1,
-    vbEdge: 2.2,
+    bandgapEv: 2.25,
+    cbEdge: -0.4,
+    vbEdge: 1.85,
+    // Original values: CB -0.1, VB 2.2, Eg 2.3
     notes: "Visible-light active. Nitrogen-doped analogue of TiO₂ with narrowed bandgap. n-type.",
   },
   {
@@ -189,9 +190,10 @@ const semiconductors = [
   {
     id: "fefecn6",
     name: "FeFe(CN)₆ (Prussian blue)",
-    bandgapEv: 1.4,
-    cbEdge: 0.1,
-    vbEdge: 1.5,
+    bandgapEv: 2.2,
+    cbEdge: 0.35,
+    vbEdge: 2.55,
+    // Original values: CB 0.1, VB 1.5, Eg 1.4
     notes: "Coordination polymer semiconductor. Visible-light active. n-type.",
   },
   {
@@ -208,32 +210,36 @@ const semiconductors = [
     id: "cupc",
     name: "CuPC (Cu Phthalocyanine)",
     bandgapEv: 1.7,
-    cbEdge: -1.7,
-    vbEdge: 0.0,
-    notes: "Organic semiconductor. Very strong CB — excellent reduction potential. p-type.",
+    cbEdge: -0.94,
+    vbEdge: 0.76,
+    // Original values: CB -1.7, VB 0.0 (estimated)
+    notes: "Organic semiconductor. Strong CB for CO₂ reduction. p-type.",
   },
   {
-    id: "cl8cupc",
-    name: "Cl₈CuPC (chlorinated Cu Phthalocyanine)",
-    bandgapEv: 1.6,
-    cbEdge: -0.8,
-    vbEdge: 0.8,
-    notes: "Chlorinated phthalocyanine — shifted band edges vs CuPC. p-type.",
+    id: "cl16cupc",
+    name: "Cl₁₆CuPC (chlorinated Cu Phthalocyanine)",
+    bandgapEv: 1.7,
+    cbEdge: -0.44,
+    vbEdge: 1.26,
+    // Original entry was Cl₈CuPC with estimated values (CB -0.8, VB 0.8, Eg 1.6). No good data for partial chlorination — replaced with fully chlorinated Cl₁₆ values from ChemE.
+    notes: "Fully chlorinated phthalocyanine — shifted band edges vs CuPC. p-type.",
   },
   {
-    id: "fl8cupc",
-    name: "Fl₈CuPC (fluorinated Cu Phthalocyanine)",
-    bandgapEv: 1.5,
-    cbEdge: -0.25,
-    vbEdge: 1.25,
-    notes: "Fluorinated phthalocyanine — further shifted band edges. p-type.",
+    id: "fl16cupc",
+    name: "Fl₁₆CuPC (fluorinated Cu Phthalocyanine)",
+    bandgapEv: 1.7,
+    cbEdge: -0.04,
+    vbEdge: 1.66,
+    // Original entry was Fl₈CuPC with estimated values (CB -0.25, VB 1.25, Eg 1.5). No good data for partial fluorination — replaced with fully fluorinated Fl₁₆ values from ChemE.
+    notes: "Fully fluorinated phthalocyanine — further shifted band edges vs CuPC. p-type.",
   },
   {
     id: "fepc",
     name: "FePC (Fe Phthalocyanine)",
     bandgapEv: 1.7,
-    cbEdge: -1.3,
-    vbEdge: 0.4,
+    cbEdge: -1.04,
+    vbEdge: 0.66,
+    // Original values: CB -1.3, VB 0.4 (estimated)
     notes: "Iron phthalocyanine. Strong CB for CO₂ reduction. p-type.",
   },
 ];
