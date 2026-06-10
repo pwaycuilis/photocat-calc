@@ -19,10 +19,16 @@ const mediators = [
     notes: "pH-sensitive. Common in visible-light Z-scheme systems.",
   },
   {
-    id: "ferricyanide",
-    label: "[Fe(CN)₆]³⁻/[Fe(CN)₆]⁴⁻",
-    potential: 0.36,
-    notes: "Stable at neutral pH. Lower potential suits wider range of semiconductors.",
+    id: "ferricyanide_basic",
+    label: "[Fe(CN)₆]³⁻/[Fe(CN)₆]⁴⁻ (basic)",
+    potential: 0.46,
+    notes: "Stable mediator. Basic conditions. Previous neutral-pH estimate (0.36 V) replaced with ChemE-confirmed values.",
+  },
+  {
+    id: "ferricyanide_acidic",
+    label: "[Fe(CN)₆]³⁻/[Fe(CN)₆]⁴⁻ (acidic)",
+    potential: 0.69,
+    notes: "Stable mediator. Acidic conditions. Formal potential shifts significantly with electrolyte due to ion pairing effects.",
   },
   {
     id: "ce4_ce3",
